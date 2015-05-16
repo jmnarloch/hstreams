@@ -1,6 +1,8 @@
-# hibernate-streams-wrapper
+# hibernate-streams-wrapper 
 
 A  JDK 8 wrapper on top of Hibernate Query API
+
+[![Build Status](https://travis-ci.org/jmnarloch/hibernate-streams-wrapper.svg?branch=master)](https://travis-ci.org/jmnarloch/hibernate-streams-wrapper)
 
 ## Features
 
