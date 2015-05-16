@@ -1,6 +1,8 @@
 apply plugin: 'java'
 apply plugin: 'idea'
 
+apply from: './libraries.gradle'
+
 sourceCompatibility = 1.8
 version = '1.0'
 
@@ -20,8 +22,7 @@ repositories {
 }
 
 dependencies {
-    compile group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.0'
-    compile group: 'org.hibernate', name: 'hibernate-core', version: '4.3.9.Final'
+    compile (libraries.hibernate)
 
-    testCompile group: 'junit', name: 'junit', version: '4.+'
+    testCompile (libraries.junit)
 }
