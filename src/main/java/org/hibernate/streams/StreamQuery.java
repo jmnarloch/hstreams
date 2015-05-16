@@ -10,7 +10,9 @@ import java.math.BigInteger;
 import java.util.*;
 
 /**
+ * A wrapper around the {@link Query} interface that overrides most of the methods return types.
  *
+ * @author Jakub Narloch
  */
 public interface StreamQuery extends Query, BaseStreamQuery {
 

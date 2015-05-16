@@ -15,7 +15,9 @@ import java.sql.Connection;
 import java.util.Optional;
 
 /**
+ * The {@link Session} decorator.
  *
+ * @author Jakub Narloch
  */
 class SessionDelegate implements StreamSession {
 

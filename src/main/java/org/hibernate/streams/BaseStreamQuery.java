@@ -4,7 +4,10 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 /**
+ * The base extended Query interface that adds Java 8 specific methods, allowing to
+ * treat the query result as a {@link Stream} or retrieve {@link Optional} wrapped entities.
  *
+ * @author Jakub Narloch
  */
 public interface BaseStreamQuery {
 

@@ -14,7 +14,9 @@ import java.sql.Connection;
 import java.util.Optional;
 
 /**
+ * The {@link StatelessSession} decorator.
  *
+ * @author Jakub Narloch
  */
 class StatelessSessionDelegate implements StreamStatelessSession {
 

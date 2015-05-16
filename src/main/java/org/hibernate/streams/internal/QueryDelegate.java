@@ -12,7 +12,9 @@ import java.util.*;
 import java.util.stream.Stream;
 
 /**
+ * The {@link Query} decorator.
  *
+ * @author Jakub Narloch
  */
 class QueryDelegate implements StreamQuery {
 

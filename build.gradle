@@ -25,4 +25,6 @@ dependencies {
     compile (libraries.hibernate)
 
     testCompile (libraries.junit)
+    testCompile (libraries.mockito)
+    testCompile ('org.mockito:mockito-all:1.10.19')
 }

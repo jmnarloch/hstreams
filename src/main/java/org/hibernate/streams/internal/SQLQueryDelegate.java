@@ -13,7 +13,9 @@ import java.util.*;
 import java.util.stream.Stream;
 
 /**
+ * The {@link SQLQuery} decorator.
  *
+ * @author Jakub Narloch
  */
 class SQLQueryDelegate implements StreamSQLQuery {
 

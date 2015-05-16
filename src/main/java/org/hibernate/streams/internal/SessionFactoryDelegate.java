@@ -17,7 +17,9 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ * The {@link SessionFactory} decorator.
  *
+ * @author Jakub Narloch
  */
 class SessionFactoryDelegate implements StreamSessionFactory {
 

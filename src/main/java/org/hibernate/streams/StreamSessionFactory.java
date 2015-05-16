@@ -6,7 +6,9 @@ import org.hibernate.SessionFactory;
 import java.sql.Connection;
 
 /**
+ * A wrapper around the {@link SessionFactory} interface that overrides most of the methods return types.
  *
+ * @author Jakub Narloch
  */
 public interface StreamSessionFactory extends SessionFactory {
 

@@ -7,7 +7,9 @@ import java.io.Serializable;
 import java.util.Optional;
 
 /**
+ * A wrapper around the {@link Session} interface that overrides most of the methods return types.
  *
+ * @author Jakub Narloch
  */
 public interface StreamSession extends Session {
 
