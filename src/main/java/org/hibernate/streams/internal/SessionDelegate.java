@@ -114,8 +114,7 @@ class SessionDelegate implements StreamSession {
 
     @Override
     public Optional<?> getOptional(String entityName, Serializable id, LockOptions lockOptions) {
-        // TOOD implement
-        return null;
+        return Optional.ofNullable(get(entityName, id, lockOptions));
     }
 
     @Override

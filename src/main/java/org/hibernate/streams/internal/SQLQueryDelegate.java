@@ -142,7 +142,7 @@ class SQLQueryDelegate implements StreamSQLQuery {
 
     @Override
     public StreamSQLQuery addJoin(String tableAlias, String path, LockMode lockMode) {
-        return wrap(addJoin(tableAlias, path, lockMode));
+        return wrap(delegate.addJoin(tableAlias, path, lockMode));
     }
 
     @Override

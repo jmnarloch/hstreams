@@ -3,6 +3,9 @@ apply plugin: 'idea'
 
 apply from: './libraries.gradle'
 
+apply plugin: 'findbugs'
+apply plugin: 'pmd'
+
 sourceCompatibility = 1.8
 version = '1.0'
 
@@ -27,4 +30,8 @@ dependencies {
     testCompile (libraries.junit)
     testCompile (libraries.mockito)
     testCompile ('org.mockito:mockito-all:1.10.19')
+}
+
+findbugs {
+    ignoreFailures = true
 }
