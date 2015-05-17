@@ -16,6 +16,18 @@ public interface StreamSessionFactory extends SessionFactory {
      * {@inheritDoc}
      */
     @Override
+    StreamSessionBuilder withOptions();
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    StreamStatelessSessionBuilder withStatelessOptions();
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     StreamSession openSession() throws HibernateException;
 
     /**

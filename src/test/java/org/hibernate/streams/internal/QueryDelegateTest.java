@@ -61,19 +61,31 @@ public class QueryDelegateTest extends BaseDelegateTest<QueryDelegate, Query> {
     @Test
     public void testStream() throws Exception {
 
-        // TODO implement
+        // when
+        instance.stream();
+
+        // then
+        verify().list();
     }
 
     @Test
     public void testParallelStream() throws Exception {
 
-        // TODO implement
+        // when
+        instance.parallelStream();
+
+        // then
+        verify().list();
     }
 
     @Test
     public void testOptionalResult() throws Exception {
 
-        // TODO implement
+        // when
+        instance.optionalResult();
+
+        // then
+        verify().uniqueResult();
     }
 
     @Test

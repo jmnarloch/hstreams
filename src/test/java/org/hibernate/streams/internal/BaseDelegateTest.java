@@ -9,7 +9,9 @@ import org.mockito.runners.MockitoJUnitRunner;
 import java.util.Arrays;
 
 /**
+ * Tests the {@link QueryDelegate} class.
  *
+ * @author Jakub Narloch
  */
 @RunWith(MockitoJUnitRunner.class)
 public abstract class BaseDelegateTest<D extends T, T> {
@@ -37,8 +39,10 @@ public abstract class BaseDelegateTest<D extends T, T> {
 
     protected void verifyMethodCall(Expectation<T> expectation) throws Exception {
 
+        // performs actual call on the wrapper
         expectation.call(getInstance());
 
+        // register the expectation on the mock
         expectation.call(Mockito.verify(getMock()));
     }
 
@@ -52,9 +56,20 @@ public abstract class BaseDelegateTest<D extends T, T> {
         return Mockito.verify(getMock());
     }
 
-
+    /**
+     * Defines the interface for defining the method call expectations.
+     *
+     * @param <T> the type
+     */
+    @FunctionalInterface
     public interface Expectation<T> {
 
+        /**
+         * Registers the call expectations.
+         *
+         * @param obj the obj
+         * @throws Exception if any error occurs
+         */
         void call(T obj) throws Exception;
     }
 }

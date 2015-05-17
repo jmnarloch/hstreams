@@ -1,13 +1,14 @@
 package org.hibernate.streams.internal;
 
-import org.hibernate.*;
+import org.hibernate.Cache;
+import org.hibernate.HibernateException;
+import org.hibernate.SessionFactory;
+import org.hibernate.TypeHelper;
 import org.hibernate.engine.spi.FilterDefinition;
 import org.hibernate.metadata.ClassMetadata;
 import org.hibernate.metadata.CollectionMetadata;
 import org.hibernate.stat.Statistics;
-import org.hibernate.streams.StreamSession;
-import org.hibernate.streams.StreamSessionFactory;
-import org.hibernate.streams.StreamStatelessSession;
+import org.hibernate.streams.*;
 
 import javax.naming.NamingException;
 import javax.naming.Reference;
@@ -35,8 +36,8 @@ class SessionFactoryDelegate implements StreamSessionFactory {
     }
 
     @Override
-    public SessionBuilder withOptions() {
-        return delegate.withOptions();
+    public StreamSessionBuilder withOptions() {
+        return new StreamSessionBuilderDelegate(delegate.withOptions());
     }
 
     @Override
@@ -50,8 +51,8 @@ class SessionFactoryDelegate implements StreamSessionFactory {
     }
 
     @Override
-    public StatelessSessionBuilder withStatelessOptions() {
-        return delegate.withStatelessOptions();
+    public StreamStatelessSessionBuilder withStatelessOptions() {
+        return new StatelessSessionBuilderDelegate(delegate.withStatelessOptions());
     }
 
     @Override
