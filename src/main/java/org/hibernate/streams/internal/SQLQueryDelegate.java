@@ -472,7 +472,7 @@ class SQLQueryDelegate implements StreamSQLQuery {
 
     @Override
     public StreamSQLQuery setString(String name, String val) {
-        return wrap(delegate.setSerializable(name, val));
+        return wrap(delegate.setString(name, val));
     }
 
     @Override

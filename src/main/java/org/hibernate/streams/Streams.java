@@ -12,7 +12,7 @@ public final class Streams {
 
     /**
      * Creates new instance of {@link Streams}.
-     * <p />
+     * <p>
      * Private constructor prevents from instantiation outside this class.
      */
     private Streams() {
