@@ -52,10 +52,13 @@ The `StreamQuery` introduces fallowing methods:
 * parallelStream()
 * getOptional()
 
-=== Typed Queries
-TBD
-
 === LocalDate/LocalTime
+The Java 8 `LocalDate` and `LocalTime` can be used as query parameters through convenient set methods.
+
+* setLocalDate
+* setLocalTime
+
+=== Typed Queries
 TBD
 
 === Extended entity mapping

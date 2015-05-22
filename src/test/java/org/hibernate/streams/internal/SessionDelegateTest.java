@@ -17,6 +17,7 @@ import static org.mockito.Mockito.mock;
  *
  * @author Jakub Narloch
  */
+@SuppressWarnings("unchecked")
 public class SessionDelegateTest extends BaseDelegateTest<SessionDelegate, Session> {
 
     /**

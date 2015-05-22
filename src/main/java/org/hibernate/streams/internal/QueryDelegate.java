@@ -3,11 +3,14 @@ package org.hibernate.streams.internal;
 import org.hibernate.*;
 import org.hibernate.streams.StreamQuery;
 import org.hibernate.transform.ResultTransformer;
+import org.hibernate.type.StandardBasicTypes;
 import org.hibernate.type.Type;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -35,6 +38,26 @@ class QueryDelegate extends BaseQueryDelegate<Query> implements StreamQuery {
     @Override
     public Optional<?> optionalResult() {
         return Optional.ofNullable(uniqueResult());
+    }
+
+    @Override
+    public StreamQuery setLocalDate(String name, LocalDate localDate) {
+        return setParameter(name, localDate, StandardBasicTypes.DATE);
+    }
+
+    @Override
+    public StreamQuery setLocalTime(int position, LocalTime localTime) {
+        return setParameter(position, localTime, StandardBasicTypes.TIME);
+    }
+
+    @Override
+    public StreamQuery setLocalTime(String name, LocalTime localTime) {
+        return setParameter(name, localTime, StandardBasicTypes.TIME);
+    }
+
+    @Override
+    public StreamQuery setLocalDate(int position, LocalDate localDate) {
+        return setParameter(position, localDate, StandardBasicTypes.DATE);
     }
 
     @Override

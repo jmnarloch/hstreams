@@ -1,5 +1,7 @@
 package org.hibernate.streams;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Optional;
 import java.util.stream.Stream;
 
@@ -7,9 +9,11 @@ import java.util.stream.Stream;
  * The base extended Query interface that adds Java 8 specific methods, allowing to
  * treat the query result as a {@link Stream} or retrieve {@link Optional} wrapped entities.
  *
+ * @param <T> the concreate query type
+ *
  * @author Jakub Narloch
  */
-public interface BaseStreamQuery {
+public interface BaseStreamQuery<T extends BaseStreamQuery<T>> {
 
     /**
      * Returns the query result as a {@link java.util.stream.Stream}.
@@ -38,4 +42,12 @@ public interface BaseStreamQuery {
      * @throws NonUniqueResultException if there is more than one matching result
      */
     Optional<?> optionalResult();
+
+    T setLocalDate(int position, LocalDate localDate);
+
+    T setLocalDate(String name, LocalDate localDate);
+
+    T setLocalTime(int position, LocalTime localTime);
+
+    T setLocalTime(String name, LocalTime localTime);
 }
