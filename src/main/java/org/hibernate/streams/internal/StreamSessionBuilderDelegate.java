@@ -1,6 +1,9 @@
 package org.hibernate.streams.internal;
 
-import org.hibernate.*;
+import org.hibernate.ConnectionReleaseMode;
+import org.hibernate.Interceptor;
+import org.hibernate.SessionBuilder;
+import org.hibernate.SessionEventListener;
 import org.hibernate.streams.StreamSession;
 import org.hibernate.streams.StreamSessionBuilder;
 

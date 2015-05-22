@@ -12,253 +12,254 @@ import java.util.*;
 /**
  * A wrapper around the {@link SQLQuery} interface that overrides most of the methods return types.
  *
+ * @param <T> the actual SQL query type
  * @author Jakub Narloch
  */
-public interface StreamSQLQuery extends SQLQuery, BaseStreamQuery {
+public interface StreamSQLQuery<T extends StreamSQLQuery<T>> extends SQLQuery, BaseStreamQuery {
 
     @Override
-    StreamSQLQuery addSynchronizedQuerySpace(String querySpace);
+    T addSynchronizedQuerySpace(String querySpace);
 
     @Override
-    StreamSQLQuery addSynchronizedEntityName(String entityName) throws MappingException;
+    T addSynchronizedEntityName(String entityName) throws MappingException;
 
     @Override
-    StreamSQLQuery addSynchronizedEntityClass(Class entityClass) throws MappingException;
+    T addSynchronizedEntityClass(Class entityClass) throws MappingException;
 
     @Override
-    StreamSQLQuery setResultSetMapping(String name);
+    T setResultSetMapping(String name);
 
     @Override
-    StreamSQLQuery addScalar(String columnAlias);
+    T addScalar(String columnAlias);
 
     @Override
-    StreamSQLQuery addScalar(String columnAlias, Type type);
+    T addScalar(String columnAlias, Type type);
 
     @Override
-    StreamSQLQuery addEntity(String entityName);
+    T addEntity(String entityName);
 
     @Override
-    StreamSQLQuery addEntity(String tableAlias, String entityName);
+    T addEntity(String tableAlias, String entityName);
 
     @Override
-    StreamSQLQuery addEntity(String tableAlias, String entityName, LockMode lockMode);
+    T addEntity(String tableAlias, String entityName, LockMode lockMode);
 
     @Override
-    StreamSQLQuery addEntity(Class entityType);
+    T addEntity(Class entityType);
 
     @Override
-    StreamSQLQuery addEntity(String tableAlias, Class entityType);
+    T addEntity(String tableAlias, Class entityType);
 
     @Override
-    StreamSQLQuery addEntity(String tableAlias, Class entityName, LockMode lockMode);
+    T addEntity(String tableAlias, Class entityName, LockMode lockMode);
 
     @Override
-    StreamSQLQuery addJoin(String tableAlias, String path);
+    T addJoin(String tableAlias, String path);
 
     @Override
-    StreamSQLQuery addJoin(String tableAlias, String ownerTableAlias, String joinPropertyName);
+    T addJoin(String tableAlias, String ownerTableAlias, String joinPropertyName);
 
     @Override
-    StreamSQLQuery addJoin(String tableAlias, String path, LockMode lockMode);
+    T addJoin(String tableAlias, String path, LockMode lockMode);
 
     @Override
-    StreamSQLQuery setMaxResults(int maxResults);
+    T setMaxResults(int maxResults);
 
     @Override
-    StreamSQLQuery setFirstResult(int firstResult);
+    T setFirstResult(int firstResult);
 
     @Override
-    StreamSQLQuery setFlushMode(FlushMode flushMode);
+    T setFlushMode(FlushMode flushMode);
 
     @Override
-    StreamSQLQuery setCacheMode(CacheMode cacheMode);
+    T setCacheMode(CacheMode cacheMode);
 
     @Override
-    StreamSQLQuery setCacheable(boolean cacheable);
+    T setCacheable(boolean cacheable);
 
     @Override
-    StreamSQLQuery setCacheRegion(String cacheRegion);
+    T setCacheRegion(String cacheRegion);
 
     @Override
-    StreamSQLQuery setTimeout(int timeout);
+    T setTimeout(int timeout);
 
     @Override
-    StreamSQLQuery setFetchSize(int fetchSize);
+    T setFetchSize(int fetchSize);
 
     @Override
-    StreamSQLQuery setReadOnly(boolean readOnly);
+    T setReadOnly(boolean readOnly);
 
     @Override
-    StreamSQLQuery setLockOptions(LockOptions lockOptions);
+    T setLockOptions(LockOptions lockOptions);
 
     @Override
-    StreamSQLQuery setLockMode(String alias, LockMode lockMode);
+    T setLockMode(String alias, LockMode lockMode);
 
     @Override
-    StreamSQLQuery setComment(String comment);
+    T setComment(String comment);
 
     @Override
-    StreamSQLQuery addQueryHint(String hint);
+    T addQueryHint(String hint);
 
     @Override
-    StreamSQLQuery setParameter(int position, Object val, Type type);
+    T setParameter(int position, Object val, Type type);
 
     @Override
-    StreamSQLQuery setParameter(String name, Object val, Type type);
+    T setParameter(String name, Object val, Type type);
 
     @Override
-    StreamSQLQuery setParameter(int position, Object val);
+    T setParameter(int position, Object val);
 
     @Override
-    StreamSQLQuery setParameter(String name, Object val);
+    T setParameter(String name, Object val);
 
     @Override
-    StreamSQLQuery setParameters(Object[] values, Type[] types);
+    T setParameters(Object[] values, Type[] types);
 
     @Override
-    StreamSQLQuery setParameterList(String name, Collection values, Type type);
+    T setParameterList(String name, Collection values, Type type);
 
     @Override
-    StreamSQLQuery setParameterList(String name, Object[] values, Type type);
+    T setParameterList(String name, Object[] values, Type type);
 
     @Override
-    StreamSQLQuery setParameterList(String name, Collection values);
+    T setParameterList(String name, Collection values);
 
     @Override
-    StreamSQLQuery setParameterList(String name, Object[] values);
+    T setParameterList(String name, Object[] values);
 
     @Override
-    StreamSQLQuery setProperties(Object bean);
+    T setProperties(Object bean);
 
     @Override
-    StreamSQLQuery setProperties(Map bean);
+    T setProperties(Map bean);
 
     @Override
-    StreamSQLQuery setString(int position, String val);
+    T setString(int position, String val);
 
     @Override
-    StreamSQLQuery setCharacter(int position, char val);
+    T setCharacter(int position, char val);
 
     @Override
-    StreamSQLQuery setBoolean(int position, boolean val);
+    T setBoolean(int position, boolean val);
 
     @Override
-    StreamSQLQuery setByte(int position, byte val);
+    T setByte(int position, byte val);
 
     @Override
-    StreamSQLQuery setShort(int position, short val);
+    T setShort(int position, short val);
 
     @Override
-    StreamSQLQuery setInteger(int position, int val);
+    T setInteger(int position, int val);
 
     @Override
-    StreamSQLQuery setLong(int position, long val);
+    T setLong(int position, long val);
 
     @Override
-    StreamSQLQuery setFloat(int position, float val);
+    T setFloat(int position, float val);
 
     @Override
-    StreamSQLQuery setDouble(int position, double val);
+    T setDouble(int position, double val);
 
     @Override
-    StreamSQLQuery setBinary(int position, byte[] val);
+    T setBinary(int position, byte[] val);
 
     @Override
-    StreamSQLQuery setText(int position, String val);
+    T setText(int position, String val);
 
     @Override
-    StreamSQLQuery setSerializable(int position, Serializable val);
+    T setSerializable(int position, Serializable val);
 
     @Override
-    StreamSQLQuery setBigDecimal(int position, BigDecimal number);
+    T setBigDecimal(int position, BigDecimal number);
 
     @Override
-    StreamSQLQuery setLocale(int position, Locale locale);
+    T setLocale(int position, Locale locale);
 
     @Override
-    StreamSQLQuery setBigInteger(int position, BigInteger number);
+    T setBigInteger(int position, BigInteger number);
 
     @Override
-    StreamSQLQuery setDate(int position, Date date);
+    T setDate(int position, Date date);
 
     @Override
-    StreamSQLQuery setTime(int position, Date date);
+    T setTime(int position, Date date);
 
     @Override
-    StreamSQLQuery setTimestamp(int position, Date date);
+    T setTimestamp(int position, Date date);
 
     @Override
-    StreamSQLQuery setCalendarDate(int position, Calendar calendar);
+    T setCalendarDate(int position, Calendar calendar);
 
     @Override
-    StreamSQLQuery setCalendar(int position, Calendar calendar);
+    T setCalendar(int position, Calendar calendar);
 
     @Override
-    StreamSQLQuery setString(String name, String val);
+    T setString(String name, String val);
 
     @Override
-    StreamSQLQuery setCharacter(String name, char val);
+    T setCharacter(String name, char val);
 
     @Override
-    StreamSQLQuery setBoolean(String name, boolean val);
+    T setBoolean(String name, boolean val);
 
     @Override
-    StreamSQLQuery setByte(String name, byte val);
+    T setByte(String name, byte val);
 
     @Override
-    StreamSQLQuery setShort(String name, short val);
+    T setShort(String name, short val);
 
     @Override
-    StreamSQLQuery setInteger(String name, int val);
+    T setInteger(String name, int val);
 
     @Override
-    StreamSQLQuery setLong(String name, long val);
+    T setLong(String name, long val);
 
     @Override
-    StreamSQLQuery setFloat(String name, float val);
+    T setFloat(String name, float val);
 
     @Override
-    StreamSQLQuery setDouble(String name, double val);
+    T setDouble(String name, double val);
 
     @Override
-    StreamSQLQuery setBinary(String name, byte[] val);
+    T setBinary(String name, byte[] val);
 
     @Override
-    StreamSQLQuery setSerializable(String name, Serializable val);
+    T setSerializable(String name, Serializable val);
 
     @Override
-    StreamSQLQuery setText(String name, String val);
+    T setText(String name, String val);
 
     @Override
-    StreamSQLQuery setLocale(String name, Locale locale);
+    T setLocale(String name, Locale locale);
 
     @Override
-    StreamSQLQuery setBigDecimal(String name, BigDecimal number);
+    T setBigDecimal(String name, BigDecimal number);
 
     @Override
-    StreamSQLQuery setBigInteger(String name, BigInteger number);
+    T setBigInteger(String name, BigInteger number);
 
     @Override
-    StreamSQLQuery setDate(String name, Date date);
+    T setDate(String name, Date date);
 
     @Override
-    StreamSQLQuery setTimestamp(String name, Date date);
+    T setTimestamp(String name, Date date);
 
     @Override
-    StreamSQLQuery setTime(String name, Date date);
+    T setTime(String name, Date date);
 
     @Override
-    StreamSQLQuery setCalendar(String name, Calendar calendar);
+    T setCalendar(String name, Calendar calendar);
 
     @Override
-    StreamSQLQuery setCalendarDate(String name, Calendar calendar);
+    T setCalendarDate(String name, Calendar calendar);
 
     @Override
-    StreamSQLQuery setEntity(int position, Object val);
+    T setEntity(int position, Object val);
 
     @Override
-    StreamSQLQuery setEntity(String name, Object val);
+    T setEntity(String name, Object val);
 
     @Override
-    StreamSQLQuery setResultTransformer(ResultTransformer transformer);
+    T setResultTransformer(ResultTransformer transformer);
 }

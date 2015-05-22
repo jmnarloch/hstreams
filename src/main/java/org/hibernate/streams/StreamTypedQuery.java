@@ -1,7 +1,12 @@
 package org.hibernate.streams;
 
 /**
- * Created by jakubnarloch on 22.05.15.
+ * A strongly typed query.
+ *
+ * @param <E> the entity type
+ * @author Jakub Narloch
  */
-public class StreamTypedQuery {
+public interface StreamTypedQuery<E> extends StreamQuery<StreamTypedQuery<E>>, BaseStreamTypedQuery<E> {
+
+
 }

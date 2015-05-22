@@ -5,6 +5,8 @@ Jakub Narloch <j.narloch@gmail.com>
 
 An Java 8 wrapper on top Hibernate Query API
 
+Compatibility: Hibernate 4.3.x
+
 == Introduction
 
 Since Hibernate 4.x/5.x maintain still backward compatibility with Java 6/7
@@ -53,13 +55,32 @@ The `StreamQuery` introduces fallowing methods:
 * getOptional()
 
 === LocalDate/LocalTime
-The Java 8 `LocalDate` and `LocalTime` can be used as query parameters through convenient set methods.
+Now the newly introduced Java 8 `LocalDate` and `LocalTime` can be used as query parameters through convenient set methods.
 
-* setLocalDate
-* setLocalTime
+* setLocalDate(int position, LocalDate localDate)
+* setLocalDate(String name, LocalDate localDate)
+* setLocalTime(int position, LocalTime localTime)
+* setLocalTime(String name, LocalTime localTime)
 
 === Typed Queries
-TBD
+The wrapper finally brings to the query API strongly typed queries making it convinient for operating on
+list, streams and optional of concrete types instead of plain objects.
+
+[source, java]
+----
+
+Optional<User> user = session.createTypedQuery("from User where id = :id", User.class)
+                .setParameter("id", 1l)
+                .stream()
+                .findFirst();
+
+----
+
+Newly introduced methods includes:
+
+* `createTypedQuery(String queryString, Class<T> clazz)`
+* `getTypedNamedQuery(String queryName, Class<T> clazz)`
+* `createTypedSQLQuery(String queryString, Class<T> clazz)`
 
 === Extended entity mapping
 TBD

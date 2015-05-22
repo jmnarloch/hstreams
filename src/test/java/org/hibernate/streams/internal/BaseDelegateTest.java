@@ -37,6 +37,12 @@ public abstract class BaseDelegateTest<D extends T, T> {
      */
     protected abstract T getMock();
 
+    /**
+     * Registers expectation and verifies it execution on the regitered mock instance.
+     *
+     * @param expectation the method call expectation
+     * @throws Exception if any error occurs
+     */
     protected void verifyMethodCall(Expectation<T> expectation) throws Exception {
 
         // performs actual call on the wrapper

@@ -32,10 +32,40 @@ public interface StreamSession extends Session {
     StreamQuery createQuery(String queryString);
 
     /**
+     * Creates strongly typed query that is bounded to the passed type.
+     *
+     * @param queryString the query string
+     * @param clazz       the entity class
+     * @param <T>         the entity type
+     * @return the query instance
+     */
+    <T> StreamTypedQuery<T> createTypedQuery(String queryString, Class<T> clazz);
+
+    /**
+     * Retrieves the defined query by it's name.
+     *
+     * @param queryName the query name
+     * @param clazz     the entity class
+     * @param <T>       the entity type
+     * @return the query instance
+     */
+    <T> StreamTypedQuery<T> getTypedNamedQuery(String queryName, Class<T> clazz);
+
+    /**
      * {@inheritDoc}
      */
     @Override
     StreamSQLQuery createSQLQuery(String queryString);
+
+    /**
+     * Creates strongly typed query that is bounded to the passed type.
+     *
+     * @param queryString the query string
+     * @param clazz       the entity class
+     * @param <T>         the entity type
+     * @return the query instance
+     */
+    <T> StreamTypedSQLQuery<T> createTypedSQLQuery(String queryString, Class<T> clazz);
 
     /**
      * Returns the persistent instance of the given entity class that matches the given identifier,

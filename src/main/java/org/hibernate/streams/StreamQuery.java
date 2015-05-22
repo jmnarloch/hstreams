@@ -12,208 +12,209 @@ import java.util.*;
 /**
  * A wrapper around the {@link Query} interface that overrides most of the methods return types.
  *
+ * @param <Q> the actual stream query type
  * @author Jakub Narloch
  */
-public interface StreamQuery extends Query, BaseStreamQuery {
+public interface StreamQuery<Q extends StreamQuery<Q>> extends Query, BaseStreamQuery {
 
     @Override
-    StreamQuery setMaxResults(int maxResults);
+    Q setMaxResults(int maxResults);
 
     @Override
-    StreamQuery setFirstResult(int firstResult);
+    Q setFirstResult(int firstResult);
 
     @Override
-    StreamQuery setFlushMode(FlushMode flushMode);
+    Q setFlushMode(FlushMode flushMode);
 
     @Override
-    StreamQuery setCacheMode(CacheMode cacheMode);
+    Q setCacheMode(CacheMode cacheMode);
 
     @Override
-    StreamQuery setCacheable(boolean cacheable);
+    Q setCacheable(boolean cacheable);
 
     @Override
-    StreamQuery setCacheRegion(String cacheRegion);
+    Q setCacheRegion(String cacheRegion);
 
     @Override
-    StreamQuery setTimeout(int timeout);
+    Q setTimeout(int timeout);
 
     @Override
-    StreamQuery setFetchSize(int fetchSize);
+    Q setFetchSize(int fetchSize);
 
     @Override
-    StreamQuery setReadOnly(boolean readOnly);
+    Q setReadOnly(boolean readOnly);
 
     @Override
-    StreamQuery setLockOptions(LockOptions lockOptions);
+    Q setLockOptions(LockOptions lockOptions);
 
     @Override
-    StreamQuery setLockMode(String alias, LockMode lockMode);
+    Q setLockMode(String alias, LockMode lockMode);
 
     @Override
-    StreamQuery setComment(String comment);
+    Q setComment(String comment);
 
     @Override
-    StreamQuery addQueryHint(String hint);
+    Q addQueryHint(String hint);
 
     @Override
-    StreamQuery setParameter(int position, Object val, Type type);
+    Q setParameter(int position, Object val, Type type);
 
     @Override
-    StreamQuery setParameter(String name, Object val, Type type);
+    Q setParameter(String name, Object val, Type type);
 
     @Override
-    StreamQuery setParameter(int position, Object val);
+    Q setParameter(int position, Object val);
 
     @Override
-    StreamQuery setParameter(String name, Object val);
+    Q setParameter(String name, Object val);
 
     @Override
-    StreamQuery setParameters(Object[] values, Type[] types);
+    Q setParameters(Object[] values, Type[] types);
 
     @Override
-    StreamQuery setParameterList(String name, Collection values, Type type);
+    Q setParameterList(String name, Collection values, Type type);
 
     @Override
-    StreamQuery setParameterList(String name, Collection values);
+    Q setParameterList(String name, Collection values);
 
     @Override
-    StreamQuery setParameterList(String name, Object[] values, Type type);
+    Q setParameterList(String name, Object[] values, Type type);
 
     @Override
-    StreamQuery setParameterList(String name, Object[] values);
+    Q setParameterList(String name, Object[] values);
 
     @Override
-    StreamQuery setProperties(Object bean);
+    Q setProperties(Object bean);
 
     @Override
-    StreamQuery setProperties(Map bean);
+    Q setProperties(Map bean);
 
     @Override
-    StreamQuery setString(int position, String val);
+    Q setString(int position, String val);
 
     @Override
-    StreamQuery setCharacter(int position, char val);
+    Q setCharacter(int position, char val);
 
     @Override
-    StreamQuery setBoolean(int position, boolean val);
+    Q setBoolean(int position, boolean val);
 
     @Override
-    StreamQuery setByte(int position, byte val);
+    Q setByte(int position, byte val);
 
     @Override
-    StreamQuery setShort(int position, short val);
+    Q setShort(int position, short val);
 
     @Override
-    StreamQuery setInteger(int position, int val);
+    Q setInteger(int position, int val);
 
     @Override
-    StreamQuery setLong(int position, long val);
+    Q setLong(int position, long val);
 
     @Override
-    StreamQuery setFloat(int position, float val);
+    Q setFloat(int position, float val);
 
     @Override
-    StreamQuery setDouble(int position, double val);
+    Q setDouble(int position, double val);
 
     @Override
-    StreamQuery setBinary(int position, byte[] val);
+    Q setBinary(int position, byte[] val);
 
     @Override
-    StreamQuery setText(int position, String val);
+    Q setText(int position, String val);
 
     @Override
-    StreamQuery setSerializable(int position, Serializable val);
+    Q setSerializable(int position, Serializable val);
 
     @Override
-    StreamQuery setLocale(int position, Locale locale);
+    Q setLocale(int position, Locale locale);
 
     @Override
-    StreamQuery setBigDecimal(int position, BigDecimal number);
+    Q setBigDecimal(int position, BigDecimal number);
 
     @Override
-    StreamQuery setBigInteger(int position, BigInteger number);
+    Q setBigInteger(int position, BigInteger number);
 
     @Override
-    StreamQuery setDate(int position, Date date);
+    Q setDate(int position, Date date);
 
     @Override
-    StreamQuery setTime(int position, Date date);
+    Q setTime(int position, Date date);
 
     @Override
-    StreamQuery setTimestamp(int position, Date date);
+    Q setTimestamp(int position, Date date);
 
     @Override
-    StreamQuery setCalendar(int position, Calendar calendar);
+    Q setCalendar(int position, Calendar calendar);
 
     @Override
-    StreamQuery setCalendarDate(int position, Calendar calendar);
+    Q setCalendarDate(int position, Calendar calendar);
 
     @Override
-    StreamQuery setString(String name, String val);
+    Q setString(String name, String val);
 
     @Override
-    StreamQuery setCharacter(String name, char val);
+    Q setCharacter(String name, char val);
 
     @Override
-    StreamQuery setBoolean(String name, boolean val);
+    Q setBoolean(String name, boolean val);
 
     @Override
-    StreamQuery setByte(String name, byte val);
+    Q setByte(String name, byte val);
 
     @Override
-    StreamQuery setShort(String name, short val);
+    Q setShort(String name, short val);
 
     @Override
-    StreamQuery setInteger(String name, int val);
+    Q setInteger(String name, int val);
 
     @Override
-    StreamQuery setLong(String name, long val);
+    Q setLong(String name, long val);
 
     @Override
-    StreamQuery setFloat(String name, float val);
+    Q setFloat(String name, float val);
 
     @Override
-    StreamQuery setDouble(String name, double val);
+    Q setDouble(String name, double val);
 
     @Override
-    StreamQuery setBinary(String name, byte[] val);
+    Q setBinary(String name, byte[] val);
 
     @Override
-    StreamQuery setText(String name, String val);
+    Q setText(String name, String val);
 
     @Override
-    StreamQuery setSerializable(String name, Serializable val);
+    Q setSerializable(String name, Serializable val);
 
     @Override
-    StreamQuery setLocale(String name, Locale locale);
+    Q setLocale(String name, Locale locale);
 
     @Override
-    StreamQuery setBigInteger(String name, BigInteger number);
+    Q setBigInteger(String name, BigInteger number);
 
     @Override
-    StreamQuery setBigDecimal(String name, BigDecimal number);
+    Q setBigDecimal(String name, BigDecimal number);
 
     @Override
-    StreamQuery setDate(String name, Date date);
+    Q setDate(String name, Date date);
 
     @Override
-    StreamQuery setTime(String name, Date date);
+    Q setTime(String name, Date date);
 
     @Override
-    StreamQuery setTimestamp(String name, Date date);
+    Q setTimestamp(String name, Date date);
 
     @Override
-    StreamQuery setCalendar(String name, Calendar calendar);
+    Q setCalendar(String name, Calendar calendar);
 
     @Override
-    StreamQuery setCalendarDate(String name, Calendar calendar);
+    Q setCalendarDate(String name, Calendar calendar);
 
     @Override
-    StreamQuery setEntity(int position, Object val);
+    Q setEntity(int position, Object val);
 
     @Override
-    StreamQuery setEntity(String name, Object val);
+    Q setEntity(String name, Object val);
 
     @Override
-    StreamQuery setResultTransformer(ResultTransformer transformer);
+    Q setResultTransformer(ResultTransformer transformer);
 }

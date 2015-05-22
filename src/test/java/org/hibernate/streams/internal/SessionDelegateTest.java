@@ -90,6 +90,20 @@ public class SessionDelegateTest extends BaseDelegateTest<SessionDelegate, Sessi
     }
 
     @Test
+    public void testGetTypedNamedQuery() throws Exception {
+
+        // given
+        final String queryName = "queryName";
+        final Class<?> clazz = Object.class;
+
+        // when
+        instance.getTypedNamedQuery(queryName, clazz);
+
+        // then
+        verify().getNamedQuery(queryName);
+    }
+
+    @Test
     public void testCreateQuery() throws Exception {
 
         // given
@@ -100,6 +114,20 @@ public class SessionDelegateTest extends BaseDelegateTest<SessionDelegate, Sessi
     }
 
     @Test
+    public void testCreateTypedQuery() throws Exception {
+
+        // given
+        final String query = "query";
+        final Class<?> clazz = Object.class;
+
+        // when
+        instance.createTypedQuery(query, clazz);
+
+        // then
+        verify().createQuery(query);
+    }
+
+    @Test
     public void testCreateSQLQuery() throws Exception {
 
         // given
@@ -107,6 +135,20 @@ public class SessionDelegateTest extends BaseDelegateTest<SessionDelegate, Sessi
 
         // then
         verifyMethodCall(s -> s.createSQLQuery(query));
+    }
+
+    @Test
+    public void testCreateTypedSQLQuery() throws Exception {
+
+        // given
+        final String query = "query";
+        final Class<?> clazz = Object.class;
+
+        // when
+        instance.createTypedSQLQuery(query, clazz);
+
+        // then
+        verify().createSQLQuery(query);
     }
 
     @Test

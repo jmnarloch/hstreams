@@ -3,6 +3,7 @@ package org.hibernate.streams;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.streams.model.User;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -34,11 +35,16 @@ public class Demo {
                 .stream()
                 .count();
 
-        Optional<?> admin = session.createQuery("from User where id = :id")
+        Optional<?> user1 = session.createQuery("from User where id = :id")
                 .setParameter("id", 1l)
                 .optionalResult();
 
-        Optional<?> user = session.getOptional("User", 1l);
+        Optional<User> user2 = session.createTypedQuery("from User where id = :id", User.class)
+                .setParameter("id", 1l)
+                .stream()
+                .findFirst();
+
+        Optional<?> user3 = session.getOptional("User", 1l);
     }
 
     private SessionFactory sessionFactory() {

@@ -10,7 +10,6 @@ import java.util.stream.Stream;
  * treat the query result as a {@link Stream} or retrieve {@link Optional} wrapped entities.
  *
  * @param <T> the concreate query type
- *
  * @author Jakub Narloch
  */
 public interface BaseStreamQuery<T extends BaseStreamQuery<T>> {
@@ -43,11 +42,39 @@ public interface BaseStreamQuery<T extends BaseStreamQuery<T>> {
      */
     Optional<?> optionalResult();
 
+    /**
+     * Sets a positional {@link LocalDate} parameter using just date portion.
+     *
+     * @param position  the parameter position
+     * @param localDate the date value
+     * @return the reference to {@code this}
+     */
     T setLocalDate(int position, LocalDate localDate);
 
+    /**
+     * Sets a named {@link LocalDate} parameter using just date portion.
+     *
+     * @param name      the parameter name
+     * @param localDate the date value
+     * @return the reference to {@code this}
+     */
     T setLocalDate(String name, LocalDate localDate);
 
+    /**
+     * Sets a positional {@link LocalTime} parameter using just time portion.
+     *
+     * @param position  the parameter position
+     * @param localTime the time value
+     * @return the reference to {@code this}
+     */
     T setLocalTime(int position, LocalTime localTime);
 
+    /**
+     * Sets a named {@link LocalTime} parameter using just time portion.
+     *
+     * @param name      the parameter name
+     * @param localTime the time value
+     * @return the reference to {@code this}
+     */
     T setLocalTime(String name, LocalTime localTime);
 }

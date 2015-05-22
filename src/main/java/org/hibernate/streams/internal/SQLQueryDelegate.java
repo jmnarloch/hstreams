@@ -20,7 +20,7 @@ import java.util.stream.Stream;
  *
  * @author Jakub Narloch
  */
-class SQLQueryDelegate extends BaseQueryDelegate<SQLQuery> implements StreamSQLQuery {
+class SQLQueryDelegate<T extends StreamSQLQuery<T>> extends BaseQueryDelegate<SQLQuery> implements StreamSQLQuery<T> {
 
     SQLQueryDelegate(SQLQuery delegate) {
         super(delegate);
@@ -67,22 +67,22 @@ class SQLQueryDelegate extends BaseQueryDelegate<SQLQuery> implements StreamSQLQ
     }
 
     @Override
-    public StreamSQLQuery addSynchronizedQuerySpace(String querySpace) {
+    public T addSynchronizedQuerySpace(String querySpace) {
         return wrap(delegate().addSynchronizedQuerySpace(querySpace));
     }
 
     @Override
-    public StreamSQLQuery addSynchronizedEntityName(String entityName) throws MappingException {
+    public T addSynchronizedEntityName(String entityName) throws MappingException {
         return wrap(delegate().addSynchronizedQuerySpace(entityName));
     }
 
     @Override
-    public StreamSQLQuery addSynchronizedEntityClass(Class entityClass) throws MappingException {
+    public T addSynchronizedEntityClass(Class entityClass) throws MappingException {
         return wrap(delegate().addSynchronizedEntityClass(entityClass));
     }
 
     @Override
-    public StreamSQLQuery setResultSetMapping(String name) {
+    public T setResultSetMapping(String name) {
         return wrap(delegate().setResultSetMapping(name));
     }
 
@@ -97,12 +97,12 @@ class SQLQueryDelegate extends BaseQueryDelegate<SQLQuery> implements StreamSQLQ
     }
 
     @Override
-    public StreamSQLQuery addScalar(String columnAlias) {
+    public T addScalar(String columnAlias) {
         return wrap(delegate().addScalar(columnAlias));
     }
 
     @Override
-    public StreamSQLQuery addScalar(String columnAlias, Type type) {
+    public T addScalar(String columnAlias, Type type) {
         return wrap(delegate().addScalar(columnAlias, type));
     }
 
@@ -117,32 +117,32 @@ class SQLQueryDelegate extends BaseQueryDelegate<SQLQuery> implements StreamSQLQ
     }
 
     @Override
-    public StreamSQLQuery addEntity(String entityName) {
+    public T addEntity(String entityName) {
         return wrap(delegate().addEntity(entityName));
     }
 
     @Override
-    public StreamSQLQuery addEntity(String tableAlias, String entityName) {
+    public T addEntity(String tableAlias, String entityName) {
         return wrap(delegate().addEntity(tableAlias, entityName));
     }
 
     @Override
-    public StreamSQLQuery addEntity(String tableAlias, String entityName, LockMode lockMode) {
+    public T addEntity(String tableAlias, String entityName, LockMode lockMode) {
         return wrap(delegate().addEntity(tableAlias, entityName, lockMode));
     }
 
     @Override
-    public StreamSQLQuery addEntity(Class entityType) {
+    public T addEntity(Class entityType) {
         return wrap(delegate().addEntity(entityType));
     }
 
     @Override
-    public StreamSQLQuery addEntity(String tableAlias, Class entityType) {
+    public T addEntity(String tableAlias, Class entityType) {
         return wrap(delegate().addEntity(tableAlias, entityType));
     }
 
     @Override
-    public StreamSQLQuery addEntity(String tableAlias, Class entityName, LockMode lockMode) {
+    public T addEntity(String tableAlias, Class entityName, LockMode lockMode) {
         return wrap(delegate().addEntity(tableAlias, entityName, lockMode));
     }
 
@@ -152,17 +152,17 @@ class SQLQueryDelegate extends BaseQueryDelegate<SQLQuery> implements StreamSQLQ
     }
 
     @Override
-    public StreamSQLQuery addJoin(String tableAlias, String path) {
+    public T addJoin(String tableAlias, String path) {
         return wrap(delegate().addJoin(tableAlias, path));
     }
 
     @Override
-    public StreamSQLQuery addJoin(String tableAlias, String ownerTableAlias, String joinPropertyName) {
+    public T addJoin(String tableAlias, String ownerTableAlias, String joinPropertyName) {
         return wrap(delegate().addJoin(tableAlias, ownerTableAlias, joinPropertyName));
     }
 
     @Override
-    public StreamSQLQuery addJoin(String tableAlias, String path, LockMode lockMode) {
+    public T addJoin(String tableAlias, String path, LockMode lockMode) {
         return wrap(delegate().addJoin(tableAlias, path, lockMode));
     }
 
@@ -177,7 +177,7 @@ class SQLQueryDelegate extends BaseQueryDelegate<SQLQuery> implements StreamSQLQ
     }
 
     @Override
-    public StreamSQLQuery setMaxResults(int maxResults) {
+    public T setMaxResults(int maxResults) {
         return wrap(delegate().setMaxResults(maxResults));
     }
 
@@ -187,42 +187,42 @@ class SQLQueryDelegate extends BaseQueryDelegate<SQLQuery> implements StreamSQLQ
     }
 
     @Override
-    public StreamSQLQuery setFirstResult(int firstResult) {
+    public T setFirstResult(int firstResult) {
         return wrap(delegate().setFirstResult(firstResult));
     }
 
     @Override
-    public StreamSQLQuery setFlushMode(FlushMode flushMode) {
+    public T setFlushMode(FlushMode flushMode) {
         return wrap(delegate().setFlushMode(flushMode));
     }
 
     @Override
-    public StreamSQLQuery setCacheMode(CacheMode cacheMode) {
+    public T setCacheMode(CacheMode cacheMode) {
         return wrap(delegate().setCacheMode(cacheMode));
     }
 
     @Override
-    public StreamSQLQuery setCacheable(boolean cacheable) {
+    public T setCacheable(boolean cacheable) {
         return wrap(delegate().setCacheable(cacheable));
     }
 
     @Override
-    public StreamSQLQuery setCacheRegion(String cacheRegion) {
+    public T setCacheRegion(String cacheRegion) {
         return wrap(delegate().setCacheRegion(cacheRegion));
     }
 
     @Override
-    public StreamSQLQuery setTimeout(int timeout) {
+    public T setTimeout(int timeout) {
         return wrap(delegate().setTimeout(timeout));
     }
 
     @Override
-    public StreamSQLQuery setFetchSize(int fetchSize) {
+    public T setFetchSize(int fetchSize) {
         return wrap(delegate().setFetchSize(fetchSize));
     }
 
     @Override
-    public StreamSQLQuery setReadOnly(boolean readOnly) {
+    public T setReadOnly(boolean readOnly) {
         return wrap(delegate().setReadOnly(readOnly));
     }
 
@@ -232,12 +232,12 @@ class SQLQueryDelegate extends BaseQueryDelegate<SQLQuery> implements StreamSQLQ
     }
 
     @Override
-    public StreamSQLQuery setLockOptions(LockOptions lockOptions) {
+    public T setLockOptions(LockOptions lockOptions) {
         return wrap(delegate().setLockOptions(lockOptions));
     }
 
     @Override
-    public StreamSQLQuery setLockMode(String alias, LockMode lockMode) {
+    public T setLockMode(String alias, LockMode lockMode) {
         return wrap(delegate().setLockMode(alias, lockMode));
     }
 
@@ -247,12 +247,12 @@ class SQLQueryDelegate extends BaseQueryDelegate<SQLQuery> implements StreamSQLQ
     }
 
     @Override
-    public StreamSQLQuery setComment(String comment) {
+    public T setComment(String comment) {
         return wrap(delegate().setComment(comment));
     }
 
     @Override
-    public StreamSQLQuery addQueryHint(String hint) {
+    public T addQueryHint(String hint) {
         return wrap(delegate().addQueryHint(hint));
     }
 
@@ -297,276 +297,277 @@ class SQLQueryDelegate extends BaseQueryDelegate<SQLQuery> implements StreamSQLQ
     }
 
     @Override
-    public StreamSQLQuery setParameter(int position, Object val, Type type) {
+    public T setParameter(int position, Object val, Type type) {
         return wrap(delegate().setParameter(position, val, type));
     }
 
     @Override
-    public StreamSQLQuery setParameter(String name, Object val, Type type) {
+    public T setParameter(String name, Object val, Type type) {
         return wrap(delegate().setParameter(name, val, type));
     }
 
     @Override
-    public StreamSQLQuery setParameter(int position, Object val) {
+    public T setParameter(int position, Object val) {
         return wrap(delegate().setParameter(position, val));
     }
 
     @Override
-    public StreamSQLQuery setParameter(String name, Object val) {
+    public T setParameter(String name, Object val) {
         return wrap(delegate().setParameter(name, val));
     }
 
     @Override
-    public StreamSQLQuery setParameters(Object[] values, Type[] types) {
+    public T setParameters(Object[] values, Type[] types) {
         return wrap(delegate().setParameters(values, types));
     }
 
     @Override
-    public StreamSQLQuery setParameterList(String name, Collection values, Type type) {
+    public T setParameterList(String name, Collection values, Type type) {
         return wrap(delegate().setParameterList(name, values, type));
     }
 
     @Override
-    public StreamSQLQuery setParameterList(String name, Collection values) {
+    public T setParameterList(String name, Collection values) {
         return wrap(delegate().setParameterList(name, values));
     }
 
     @Override
-    public StreamSQLQuery setParameterList(String name, Object[] values, Type type) {
+    public T setParameterList(String name, Object[] values, Type type) {
         return wrap(delegate().setParameterList(name, values, type));
     }
 
     @Override
-    public StreamSQLQuery setParameterList(String name, Object[] values) {
+    public T setParameterList(String name, Object[] values) {
         return wrap(delegate().setParameterList(name, values));
     }
 
     @Override
-    public StreamSQLQuery setProperties(Object bean) {
+    public T setProperties(Object bean) {
         return wrap(delegate().setProperties(bean));
     }
 
     @Override
-    public StreamSQLQuery setProperties(Map bean) {
+    public T setProperties(Map bean) {
         return wrap(delegate().setProperties(bean));
     }
 
     @Override
-    public StreamSQLQuery setString(int position, String val) {
+    public T setString(int position, String val) {
         return wrap(delegate().setString(position, val));
     }
 
     @Override
-    public StreamSQLQuery setCharacter(int position, char val) {
+    public T setCharacter(int position, char val) {
         return wrap(delegate().setCharacter(position, val));
     }
 
     @Override
-    public StreamSQLQuery setBoolean(int position, boolean val) {
+    public T setBoolean(int position, boolean val) {
         return wrap(delegate().setBoolean(position, val));
     }
 
     @Override
-    public StreamSQLQuery setByte(int position, byte val) {
+    public T setByte(int position, byte val) {
         return wrap(delegate().setByte(position, val));
     }
 
     @Override
-    public StreamSQLQuery setShort(int position, short val) {
+    public T setShort(int position, short val) {
         return wrap(delegate().setShort(position, val));
     }
 
     @Override
-    public StreamSQLQuery setInteger(int position, int val) {
+    public T setInteger(int position, int val) {
         return wrap(delegate().setInteger(position, val));
     }
 
     @Override
-    public StreamSQLQuery setLong(int position, long val) {
+    public T setLong(int position, long val) {
         return wrap(delegate().setLong(position, val));
     }
 
     @Override
-    public StreamSQLQuery setFloat(int position, float val) {
+    public T setFloat(int position, float val) {
         return wrap(delegate().setFloat(position, val));
     }
 
     @Override
-    public StreamSQLQuery setDouble(int position, double val) {
+    public T setDouble(int position, double val) {
         return wrap(delegate().setDouble(position, val));
     }
 
     @Override
-    public StreamSQLQuery setBinary(int position, byte[] val) {
+    public T setBinary(int position, byte[] val) {
         return wrap(delegate().setBinary(position, val));
     }
 
     @Override
-    public StreamSQLQuery setText(int position, String val) {
+    public T setText(int position, String val) {
         return wrap(delegate().setText(position, val));
     }
 
     @Override
-    public StreamSQLQuery setSerializable(int position, Serializable val) {
+    public T setSerializable(int position, Serializable val) {
         return wrap(delegate().setSerializable(position, val));
     }
 
     @Override
-    public StreamSQLQuery setLocale(int position, Locale locale) {
+    public T setLocale(int position, Locale locale) {
         return wrap(delegate().setLocale(position, locale));
     }
 
     @Override
-    public StreamSQLQuery setBigDecimal(int position, BigDecimal number) {
+    public T setBigDecimal(int position, BigDecimal number) {
         return wrap(delegate().setBigDecimal(position, number));
     }
 
     @Override
-    public StreamSQLQuery setBigInteger(int position, BigInteger number) {
+    public T setBigInteger(int position, BigInteger number) {
         return wrap(delegate().setBigInteger(position, number));
     }
 
     @Override
-    public StreamSQLQuery setDate(int position, Date date) {
+    public T setDate(int position, Date date) {
         return wrap(delegate().setDate(position, date));
     }
 
     @Override
-    public StreamSQLQuery setTime(int position, Date date) {
+    public T setTime(int position, Date date) {
         return wrap(delegate().setTime(position, date));
     }
 
     @Override
-    public StreamSQLQuery setTimestamp(int position, Date date) {
+    public T setTimestamp(int position, Date date) {
         return wrap(delegate().setTimestamp(position, date));
     }
 
     @Override
-    public StreamSQLQuery setCalendar(int position, Calendar calendar) {
+    public T setCalendar(int position, Calendar calendar) {
         return wrap(delegate().setCalendar(position, calendar));
     }
 
     @Override
-    public StreamSQLQuery setCalendarDate(int position, Calendar calendar) {
+    public T setCalendarDate(int position, Calendar calendar) {
         return wrap(delegate().setCalendarDate(position, calendar));
     }
 
     @Override
-    public StreamSQLQuery setString(String name, String val) {
+    public T setString(String name, String val) {
         return wrap(delegate().setString(name, val));
     }
 
     @Override
-    public StreamSQLQuery setCharacter(String name, char val) {
+    public T setCharacter(String name, char val) {
         return wrap(delegate().setCharacter(name, val));
     }
 
     @Override
-    public StreamSQLQuery setBoolean(String name, boolean val) {
+    public T setBoolean(String name, boolean val) {
         return wrap(delegate().setBoolean(name, val));
     }
 
     @Override
-    public StreamSQLQuery setByte(String name, byte val) {
+    public T setByte(String name, byte val) {
         return wrap(delegate().setByte(name, val));
     }
 
     @Override
-    public StreamSQLQuery setShort(String name, short val) {
+    public T setShort(String name, short val) {
         return wrap(delegate().setShort(name, val));
     }
 
     @Override
-    public StreamSQLQuery setInteger(String name, int val) {
+    public T setInteger(String name, int val) {
         return wrap(delegate().setInteger(name, val));
     }
 
     @Override
-    public StreamSQLQuery setLong(String name, long val) {
+    public T setLong(String name, long val) {
         return wrap(delegate().setLong(name, val));
     }
 
     @Override
-    public StreamSQLQuery setFloat(String name, float val) {
+    public T setFloat(String name, float val) {
         return wrap(delegate().setFloat(name, val));
     }
 
     @Override
-    public StreamSQLQuery setDouble(String name, double val) {
+    public T setDouble(String name, double val) {
         return wrap(delegate().setDouble(name, val));
     }
 
     @Override
-    public StreamSQLQuery setBinary(String name, byte[] val) {
+    public T setBinary(String name, byte[] val) {
         return wrap(delegate().setBinary(name, val));
     }
 
     @Override
-    public StreamSQLQuery setText(String name, String val) {
+    public T setText(String name, String val) {
         return wrap(delegate().setText(name, val));
     }
 
     @Override
-    public StreamSQLQuery setSerializable(String name, Serializable val) {
+    public T setSerializable(String name, Serializable val) {
         return wrap(delegate().setSerializable(name, val));
     }
 
     @Override
-    public StreamSQLQuery setLocale(String name, Locale locale) {
+    public T setLocale(String name, Locale locale) {
         return wrap(delegate().setLocale(name, locale));
     }
 
     @Override
-    public StreamSQLQuery setBigDecimal(String name, BigDecimal number) {
+    public T setBigDecimal(String name, BigDecimal number) {
         return wrap(delegate().setBigDecimal(name, number));
     }
 
     @Override
-    public StreamSQLQuery setBigInteger(String name, BigInteger number) {
+    public T setBigInteger(String name, BigInteger number) {
         return wrap(delegate().setBigInteger(name, number));
     }
 
     @Override
-    public StreamSQLQuery setDate(String name, Date date) {
+    public T setDate(String name, Date date) {
         return wrap(delegate().setDate(name, date));
     }
 
     @Override
-    public StreamSQLQuery setTime(String name, Date date) {
+    public T setTime(String name, Date date) {
         return wrap(delegate().setTime(name, date));
     }
 
     @Override
-    public StreamSQLQuery setTimestamp(String name, Date date) {
+    public T setTimestamp(String name, Date date) {
         return wrap(delegate().setTimestamp(name, date));
     }
 
     @Override
-    public StreamSQLQuery setCalendar(String name, Calendar calendar) {
+    public T setCalendar(String name, Calendar calendar) {
         return wrap(delegate().setCalendar(name, calendar));
     }
 
     @Override
-    public StreamSQLQuery setCalendarDate(String name, Calendar calendar) {
+    public T setCalendarDate(String name, Calendar calendar) {
         return wrap(delegate().setCalendarDate(name, calendar));
     }
 
     @Override
-    public StreamSQLQuery setEntity(int position, Object val) {
+    public T setEntity(int position, Object val) {
         return wrap(delegate().setEntity(position, val));
     }
 
     @Override
-    public StreamSQLQuery setEntity(String name, Object val) {
+    public T setEntity(String name, Object val) {
         return wrap(delegate().setEntity(name, val));
     }
 
     @Override
-    public StreamSQLQuery setResultTransformer(ResultTransformer transformer) {
+    public T setResultTransformer(ResultTransformer transformer) {
         return wrap(delegate().setResultTransformer(transformer));
     }
 
-    private StreamSQLQuery wrap(final Query query) {
-        return this;
+    @SuppressWarnings("unchecked")
+    private T wrap(final Query query) {
+        return (T) this;
     }
 }

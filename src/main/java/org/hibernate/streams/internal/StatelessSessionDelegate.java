@@ -5,9 +5,7 @@ import org.hibernate.LockMode;
 import org.hibernate.StatelessSession;
 import org.hibernate.Transaction;
 import org.hibernate.procedure.ProcedureCall;
-import org.hibernate.streams.StreamQuery;
-import org.hibernate.streams.StreamSQLQuery;
-import org.hibernate.streams.StreamStatelessSession;
+import org.hibernate.streams.*;
 
 import java.io.Serializable;
 import java.sql.Connection;
@@ -52,8 +50,23 @@ class StatelessSessionDelegate implements StreamStatelessSession {
     }
 
     @Override
+    public <T> StreamTypedQuery<T> createTypedQuery(String queryString, Class<T> clazz) {
+        return new TypedQueryDelegate<>(createQuery(queryString), clazz);
+    }
+
+    @Override
+    public <T> StreamTypedQuery<T> getTypedNamedQuery(String queryName, Class<T> clazz) {
+        return new TypedQueryDelegate<>(getNamedQuery(queryName), clazz);
+    }
+
+    @Override
     public StreamSQLQuery createSQLQuery(String queryString) {
         return new SQLQueryDelegate(delegate.createSQLQuery(queryString));
+    }
+
+    @Override
+    public <T> StreamTypedSQLQuery<T> createTypedSQLQuery(String queryString, Class<T> clazz) {
+        return new TypedSQLQueryDelegate<>(createSQLQuery(queryString), clazz);
     }
 
     @Override
