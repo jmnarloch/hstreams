@@ -9,7 +9,7 @@ A  JDK 8 wrapper on top of Hibernate Query API
 * Retrieval of Optional query results
 * Query to stream conversion
 
-See the document summarizing the changes [API](api.adoc)
+See the document that summarizes the changes [API](api.adoc)
 
 ## Example
 
