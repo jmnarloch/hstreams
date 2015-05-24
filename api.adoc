@@ -1,0 +1,62 @@
+= Hibernate Streams Wrapper
+Jakub Narloch <j.narloch@gmail.com>
+:toc: left
+:sectnums:
+
+An Java 8 wrapper on top Hibernate Query API
+
+== Introduction
+
+Since Hibernate 4.x/5.x maintain still backward compatibility with Java 6/7
+this small project has been introduced in order to bring the benefits of Java 8
+streams, optional objects and new date API.
+
+=== The wrapper
+
+Using the extended API is straightforward, simply pass your SessionFactory instance to `Streams.wrap` method.
+
+[source, java]
+----
+
+SessionFactory sessionFactory = ... // create your session factory in standard manner
+StreamSessionFactory streamsFactory = Streams.wrap(sessionFactory);
+
+----
+
+The StreamSessionFactory wrapper overloads bunch of the existing methods and additionally defines new ones.
+
+The modified API classes and their counterparts can be summarized in the table
+
+[cols="2*", options="header"]
+|===
+| Hibernate OR/M | Wrapper
+
+| SessionFactory | StreamSessionFactory
+| Session | StreamSession
+| StatelessSession | StreamStatelessSession
+| SessionBuilder | StreamSessionBuilder
+| StatelessSessionBuilder | StreamStatelessSessionBuilder
+| Query | StreamQuery
+| SQLQuery | StreamSQLQuery
+
+|===
+
+
+=== StreamSession
+`StreamSession` now allows to retrieve optional entities by calling `getOptional()` method.
+
+=== StreamQuery
+The `StreamQuery` introduces fallowing methods:
+
+* stream()
+* parallelStream()
+* getOptional()
+
+=== Typed Queries
+TBD
+
+=== LocalDate/LocalTime
+TBD
+
+=== Extended entity mapping
+TBD
