@@ -15,6 +15,17 @@ Current compatibility: Hibernate 4.3.x
 
 See the document that summarizes the introduced [API](api.adoc) changes
 
+## Setup
+
+In order to start and runing simply add the artifact to your Maven/Gradle build.
+
+```
+<dependency>
+    <groupId>com.github.jmnarloch</groupId>
+    <artifactId>hstreams</artifactId>
+</dependency>
+```
+
 ## Example
 
 ```
