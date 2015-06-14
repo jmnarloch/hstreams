@@ -53,7 +53,6 @@ class TypedSQLQueryDelegate<T> extends SQLQueryDelegate<StreamTypedSQLQuery<T>> 
     @SuppressWarnings("unchecked")
     @Override
     public List<T> list() {
-        // TODO convert to typed list
         return super.list();
     }
 

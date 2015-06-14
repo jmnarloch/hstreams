@@ -8,7 +8,6 @@ A  JDK 8 wrapper on top of Hibernate Query API
 
 * Retrieval of Optional query results
 * Query to stream conversion
-* LocalDate and LocalTime as query parameters
 * Typed queries
 
 Current compatibility: Hibernate 4.3.x 
@@ -47,4 +46,5 @@ Optional<?> user = session.getOptional("User", 1l);
 
 ## Todo
 
-* Optional<?> custom type handler/converter 
+* LocalDate and LocalTime support
+* Optional<?> custom type handler/converter

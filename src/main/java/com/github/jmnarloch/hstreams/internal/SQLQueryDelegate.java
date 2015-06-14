@@ -19,14 +19,11 @@ import com.github.jmnarloch.hstreams.StreamSQLQuery;
 import org.hibernate.*;
 import org.hibernate.engine.query.spi.sql.NativeSQLQueryReturn;
 import org.hibernate.transform.ResultTransformer;
-import org.hibernate.type.StandardBasicTypes;
 import org.hibernate.type.Type;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -54,26 +51,6 @@ class SQLQueryDelegate<T extends StreamSQLQuery<T>> extends BaseQueryDelegate<SQ
     @Override
     public Optional<?> optionalResult() {
         return Optional.ofNullable(uniqueResult());
-    }
-
-    @Override
-    public StreamSQLQuery setLocalDate(String name, LocalDate localDate) {
-        return setParameter(name, localDate, StandardBasicTypes.DATE);
-    }
-
-    @Override
-    public StreamSQLQuery setLocalTime(int position, LocalTime localTime) {
-        return setParameter(position, localTime, StandardBasicTypes.TIME);
-    }
-
-    @Override
-    public StreamSQLQuery setLocalTime(String name, LocalTime localTime) {
-        return setParameter(name, localTime, StandardBasicTypes.TIME);
-    }
-
-    @Override
-    public StreamSQLQuery setLocalDate(int position, LocalDate localDate) {
-        return setParameter(position, localDate, StandardBasicTypes.DATE);
     }
 
     @Override

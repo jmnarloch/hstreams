@@ -17,7 +17,6 @@ package com.github.jmnarloch.hstreams.internal;
 
 import org.hibernate.*;
 import org.hibernate.transform.ResultTransformer;
-import org.hibernate.type.StandardBasicTypes;
 import org.hibernate.type.Type;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,8 +24,6 @@ import org.mockito.Mock;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.*;
 
 import static org.mockito.Mockito.mock;
@@ -904,20 +901,6 @@ public class SQLQueryDelegateTest extends BaseDelegateTest<SQLQueryDelegate, SQL
     }
 
     @Test
-    public void testSetLocalDate() throws Exception {
-
-        // given
-        final int position = 0;
-        final LocalDate value = LocalDate.now();
-
-        // when
-        instance.setLocalDate(position, value);
-
-        // then
-        verify().setParameter(position, value, StandardBasicTypes.DATE);
-    }
-
-    @Test
     public void testSetTime() throws Exception {
 
         // given
@@ -926,20 +909,6 @@ public class SQLQueryDelegateTest extends BaseDelegateTest<SQLQueryDelegate, SQL
 
         // then
         verifyMethodCall(q -> q.setTime(position, value));
-    }
-
-    @Test
-    public void testSetLocalTime() throws Exception {
-
-        // given
-        final int position = 0;
-        final LocalTime value = LocalTime.now();
-
-        // when
-        instance.setLocalTime(position, value);
-
-        // then
-        verify().setParameter(position, value, StandardBasicTypes.TIME);
     }
 
     @Test
@@ -1152,20 +1121,6 @@ public class SQLQueryDelegateTest extends BaseDelegateTest<SQLQueryDelegate, SQL
     }
 
     @Test
-    public void testSetLocalDate1() throws Exception {
-
-        // given
-        final String name = "name";
-        final LocalDate value = LocalDate.now();
-
-        // when
-        instance.setLocalDate(name, value);
-
-        // then
-        verify().setParameter(name, value, StandardBasicTypes.DATE);
-    }
-
-    @Test
     public void testSetTime1() throws Exception {
 
         // given
@@ -1174,20 +1129,6 @@ public class SQLQueryDelegateTest extends BaseDelegateTest<SQLQueryDelegate, SQL
 
         // then
         verifyMethodCall(q -> q.setTime(name, value));
-    }
-
-    @Test
-    public void testSetLocalTime1() throws Exception {
-
-        // given
-        final String name = "name";
-        final LocalTime value = LocalTime.now();
-
-        // when
-        instance.setLocalTime(name, value);
-
-        // then
-        verify().setParameter(name, value, StandardBasicTypes.TIME);
     }
 
     @Test
