@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2015 HStreams contributors
+ *
+ * This program is made available under the terms of the Apache 2.0 License.
+ */
 package com.github.jmnarloch.hstreams.internal;
 
 import com.github.jmnarloch.hstreams.*;
@@ -112,25 +117,25 @@ class StatelessSessionDelegate implements StreamStatelessSession {
     @SuppressWarnings("unchecked")
     @Override
     public <T> Optional<T> getOptional(Class<T> clazz, Serializable id) {
-        return Optional.<T>ofNullable((T)get(clazz, id));
+        return Optional.<T>ofNullable((T) get(clazz, id));
     }
 
     @SuppressWarnings("unchecked")
     @Override
     public <T> Optional<T> getOptional(Class<T> clazz, Serializable id, LockMode lockMode) {
-        return Optional.<T>ofNullable((T)get(clazz, id, lockMode));
+        return Optional.<T>ofNullable((T) get(clazz, id, lockMode));
     }
 
     @SuppressWarnings("unchecked")
     @Override
     public <T> Optional<T> getOptional(String entityName, Serializable id) {
-        return Optional.<T>ofNullable((T)get(entityName, id));
+        return Optional.<T>ofNullable((T) get(entityName, id));
     }
 
     @SuppressWarnings("unchecked")
     @Override
     public <T> Optional<T> getOptional(String entityName, Serializable id, LockMode lockMode) {
-        return Optional.<T>ofNullable((T)get(entityName, id, lockMode));
+        return Optional.<T>ofNullable((T) get(entityName, id, lockMode));
     }
 
     @Override

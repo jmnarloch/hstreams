@@ -1,9 +1,14 @@
+/*
+ * Copyright (c) 2015 HStreams contributors
+ *
+ * This program is made available under the terms of the Apache 2.0 License.
+ */
 package com.github.jmnarloch.hstreams;
 
+import com.github.jmnarloch.hstreams.model.User;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import com.github.jmnarloch.hstreams.model.User;
 import org.junit.Test;
 
 import java.util.ArrayList;

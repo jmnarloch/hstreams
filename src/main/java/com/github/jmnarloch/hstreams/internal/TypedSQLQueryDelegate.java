@@ -1,7 +1,12 @@
+/*
+ * Copyright (c) 2015 HStreams contributors
+ *
+ * This program is made available under the terms of the Apache 2.0 License.
+ */
 package com.github.jmnarloch.hstreams.internal;
 
-import org.hibernate.SQLQuery;
 import com.github.jmnarloch.hstreams.StreamTypedSQLQuery;
+import org.hibernate.SQLQuery;
 
 import java.util.Iterator;
 import java.util.List;

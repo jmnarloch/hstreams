@@ -1,8 +1,13 @@
+/*
+ * Copyright (c) 2015 HStreams contributors
+ *
+ * This program is made available under the terms of the Apache 2.0 License.
+ */
 package com.github.jmnarloch.hstreams.internal;
 
 import com.github.jmnarloch.hstreams.StreamStatelessSession;
-import org.hibernate.StatelessSessionBuilder;
 import com.github.jmnarloch.hstreams.StreamStatelessSessionBuilder;
+import org.hibernate.StatelessSessionBuilder;
 
 import java.sql.Connection;
 

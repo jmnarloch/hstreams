@@ -1,11 +1,16 @@
+/*
+ * Copyright (c) 2015 HStreams contributors
+ *
+ * This program is made available under the terms of the Apache 2.0 License.
+ */
 package com.github.jmnarloch.hstreams.internal;
 
+import com.github.jmnarloch.hstreams.StreamSession;
+import com.github.jmnarloch.hstreams.StreamSessionBuilder;
 import org.hibernate.ConnectionReleaseMode;
 import org.hibernate.Interceptor;
 import org.hibernate.SessionBuilder;
 import org.hibernate.SessionEventListener;
-import com.github.jmnarloch.hstreams.StreamSession;
-import com.github.jmnarloch.hstreams.StreamSessionBuilder;
 
 import java.sql.Connection;
 

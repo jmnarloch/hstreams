@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2015 HStreams contributors
+ *
+ * This program is made available under the terms of the Apache 2.0 License.
+ */
 package com.github.jmnarloch.hstreams.internal;
 
 import com.github.jmnarloch.hstreams.*;
@@ -112,13 +117,13 @@ class SessionDelegate implements StreamSession {
     @SuppressWarnings("unchecked")
     @Override
     public <T> Optional<T> getOptional(Class<T> clazz, Serializable id) {
-        return Optional.<T>ofNullable((T)get(clazz, id));
+        return Optional.<T>ofNullable((T) get(clazz, id));
     }
 
     @SuppressWarnings("unchecked")
     @Override
     public <T> Optional<T> getOptional(Class<T> clazz, Serializable id, LockOptions lockOptions) {
-        return Optional.<T>ofNullable((T)get(clazz, id, lockOptions));
+        return Optional.<T>ofNullable((T) get(clazz, id, lockOptions));
     }
 
     @SuppressWarnings("unchecked")

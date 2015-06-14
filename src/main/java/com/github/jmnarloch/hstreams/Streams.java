@@ -1,7 +1,12 @@
+/*
+ * Copyright (c) 2015 HStreams contributors
+ *
+ * This program is made available under the terms of the Apache 2.0 License.
+ */
 package com.github.jmnarloch.hstreams;
 
-import org.hibernate.SessionFactory;
 import com.github.jmnarloch.hstreams.internal.StreamsInternal;
+import org.hibernate.SessionFactory;
 
 /**
  * An convenient utility class that allows to wrap the standard Hibernate {@link SessionFactory}.

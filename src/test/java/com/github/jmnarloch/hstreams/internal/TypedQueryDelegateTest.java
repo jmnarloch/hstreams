@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2015 HStreams contributors
+ *
+ * This program is made available under the terms of the Apache 2.0 License.
+ */
 package com.github.jmnarloch.hstreams.internal;
 
 import com.github.jmnarloch.hstreams.model.Entity;
@@ -24,8 +29,6 @@ import java.util.stream.Stream;
  */
 @RunWith(MockitoJUnitRunner.class)
 public class TypedQueryDelegateTest {
-
-    // TODO make actual result assertions
 
     /**
      * The instance of the tested class.

@@ -1,8 +1,13 @@
+/*
+ * Copyright (c) 2015 HStreams contributors
+ *
+ * This program is made available under the terms of the Apache 2.0 License.
+ */
 package com.github.jmnarloch.hstreams.internal;
 
+import com.github.jmnarloch.hstreams.StreamSQLQuery;
 import org.hibernate.*;
 import org.hibernate.engine.query.spi.sql.NativeSQLQueryReturn;
-import com.github.jmnarloch.hstreams.StreamSQLQuery;
 import org.hibernate.transform.ResultTransformer;
 import org.hibernate.type.StandardBasicTypes;
 import org.hibernate.type.Type;
