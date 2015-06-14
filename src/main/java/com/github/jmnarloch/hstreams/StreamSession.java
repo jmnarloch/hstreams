@@ -33,6 +33,7 @@ public interface StreamSession extends BaseStreamSession, Session {
      * @param clazz       a persistent type
      * @param id          an identifier
      * @param lockOptions the lock mode
+     * @param <T>         the entity type
      * @return an optional persistence instance
      */
     <T> Optional<T> getOptional(Class<T> clazz, Serializable id, LockOptions lockOptions);
@@ -46,6 +47,7 @@ public interface StreamSession extends BaseStreamSession, Session {
      * @param entityName  the entity name
      * @param id          an identifier
      * @param lockOptions the lock mode
+     * @param <T>         the entity type
      * @return an optional persistence instance
      */
     <T> Optional<T> getOptional(String entityName, Serializable id, LockOptions lockOptions);

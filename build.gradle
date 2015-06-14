@@ -2,12 +2,16 @@ apply plugin: 'java'
 apply plugin: 'idea'
 
 apply from: './libraries.gradle'
+apply from: './gradle/publish.gradle'
 
 apply plugin: 'findbugs'
 apply plugin: 'pmd'
 
 sourceCompatibility = 1.8
-version = '1.0'
+
+group = "com.github.jmnarloch"
+archivesBaseName="hstreams43"
+version = '1.0.0'
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.4'

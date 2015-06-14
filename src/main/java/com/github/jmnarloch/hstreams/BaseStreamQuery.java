@@ -5,6 +5,8 @@
  */
 package com.github.jmnarloch.hstreams;
 
+import org.hibernate.NonUniqueResultException;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Optional;
@@ -14,7 +16,7 @@ import java.util.stream.Stream;
  * The base extended Query interface that adds Java 8 specific methods, allowing to
  * treat the query result as a {@link Stream} or retrieve {@link Optional} wrapped entities.
  *
- * @param <T> the concreate query type
+ * @param <T> the concrete query type
  * @author Jakub Narloch
  */
 public interface BaseStreamQuery<T extends BaseStreamQuery<T>> {
