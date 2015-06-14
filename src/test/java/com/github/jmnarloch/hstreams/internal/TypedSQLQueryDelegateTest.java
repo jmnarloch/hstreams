@@ -40,8 +40,6 @@ import java.util.stream.Stream;
 @RunWith(MockitoJUnitRunner.class)
 public class TypedSQLQueryDelegateTest {
 
-    // TODO make actual result assertions
-
     /**
      * The instance of the tested class.
      */
