@@ -16,7 +16,7 @@ sourceCompatibility = 1.8
 
 group = "com.github.jmnarloch"
 archivesBaseName="hstreams43"
-version = '1.0.0'
+version = '1.0.1-SNAPSHOT'
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.4'
