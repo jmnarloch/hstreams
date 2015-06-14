@@ -1,8 +1,13 @@
+plugins {
+    id "com.github.hierynomus.license" version "0.11.0"
+}
+
 apply plugin: 'java'
 apply plugin: 'idea'
 
-apply from: './libraries.gradle'
-apply from: './gradle/publish.gradle'
+apply from: 'libraries.gradle'
+apply from: 'gradle/license.gradle'
+apply from: 'gradle/release.gradle'
 
 apply plugin: 'findbugs'
 apply plugin: 'pmd'
