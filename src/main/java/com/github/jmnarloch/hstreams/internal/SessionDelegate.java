@@ -109,24 +109,28 @@ class SessionDelegate implements StreamSession {
         return delegate.createCriteria(entityName, alias);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public Optional<?> getOptional(Class clazz, Serializable id) {
-        return Optional.ofNullable(get(clazz, id));
+    public <T> Optional<T> getOptional(Class<T> clazz, Serializable id) {
+        return Optional.<T>ofNullable((T)get(clazz, id));
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public Optional<?> getOptional(Class clazz, Serializable id, LockOptions lockOptions) {
-        return Optional.ofNullable(get(clazz, id, lockOptions));
+    public <T> Optional<T> getOptional(Class<T> clazz, Serializable id, LockOptions lockOptions) {
+        return Optional.<T>ofNullable((T)get(clazz, id, lockOptions));
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public Optional<?> getOptional(String entityName, Serializable id) {
-        return Optional.ofNullable(get(entityName, id));
+    public <T> Optional<T> getOptional(String entityName, Serializable id) {
+        return Optional.<T>ofNullable((T) get(entityName, id));
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public Optional<?> getOptional(String entityName, Serializable id, LockOptions lockOptions) {
-        return Optional.ofNullable(get(entityName, id, lockOptions));
+    public <T> Optional<T> getOptional(String entityName, Serializable id, LockOptions lockOptions) {
+        return Optional.<T>ofNullable((T) get(entityName, id, lockOptions));
     }
 
     @Override

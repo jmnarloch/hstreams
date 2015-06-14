@@ -109,24 +109,28 @@ class StatelessSessionDelegate implements StreamStatelessSession {
         return delegate.createCriteria(entityName, alias);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public Optional<?> getOptional(Class clazz, Serializable id) {
-        return Optional.ofNullable(get(clazz, id));
+    public <T> Optional<T> getOptional(Class<T> clazz, Serializable id) {
+        return Optional.<T>ofNullable((T)get(clazz, id));
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public Optional<?> getOptional(Class clazz, Serializable id, LockMode lockMode) {
-        return Optional.ofNullable(get(clazz, id, lockMode));
+    public <T> Optional<T> getOptional(Class<T> clazz, Serializable id, LockMode lockMode) {
+        return Optional.<T>ofNullable((T)get(clazz, id, lockMode));
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public Optional<?> getOptional(String entityName, Serializable id) {
-        return Optional.ofNullable(get(entityName, id));
+    public <T> Optional<T> getOptional(String entityName, Serializable id) {
+        return Optional.<T>ofNullable((T)get(entityName, id));
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public Optional<?> getOptional(String entityName, Serializable id, LockMode lockMode) {
-        return Optional.ofNullable(get(entityName, id, lockMode));
+    public <T> Optional<T> getOptional(String entityName, Serializable id, LockMode lockMode) {
+        return Optional.<T>ofNullable((T)get(entityName, id, lockMode));
     }
 
     @Override

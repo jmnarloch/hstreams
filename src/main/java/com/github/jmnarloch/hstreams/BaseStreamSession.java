@@ -64,7 +64,7 @@ public interface BaseStreamSession {
      * @param id    an identifier
      * @return an optional persistence instance
      */
-    Optional<?> getOptional(Class clazz, Serializable id);
+    <T> Optional<T> getOptional(Class<T> clazz, Serializable id);
 
     /**
      * Return the persistent instance of the given named entity that matches the given identifier,
@@ -75,5 +75,5 @@ public interface BaseStreamSession {
      * @param id         an identifier
      * @return an optional persistence instance
      */
-    Optional<?> getOptional(String entityName, Serializable id);
+    <T> Optional<T> getOptional(String entityName, Serializable id);
 }

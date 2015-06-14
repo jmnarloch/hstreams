@@ -30,7 +30,7 @@ public interface StreamSession extends BaseStreamSession, Session {
      * @param lockOptions the lock mode
      * @return an optional persistence instance
      */
-    Optional<?> getOptional(Class clazz, Serializable id, LockOptions lockOptions);
+    <T> Optional<T> getOptional(Class<T> clazz, Serializable id, LockOptions lockOptions);
 
     /**
      * Return the persistent instance of the given named entity that matches the given identifier,
@@ -43,5 +43,5 @@ public interface StreamSession extends BaseStreamSession, Session {
      * @param lockOptions the lock mode
      * @return an optional persistence instance
      */
-    Optional<?> getOptional(String entityName, Serializable id, LockOptions lockOptions);
+    <T> Optional<T> getOptional(String entityName, Serializable id, LockOptions lockOptions);
 }

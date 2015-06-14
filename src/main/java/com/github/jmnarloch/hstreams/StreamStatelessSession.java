@@ -24,7 +24,7 @@ public interface StreamStatelessSession extends BaseStreamSession, StatelessSess
      * @param lockMode the lock mode
      * @return an optional persistence instance
      */
-    Optional<?> getOptional(Class clazz, Serializable id, LockMode lockMode);
+    <T> Optional<T> getOptional(Class<T> clazz, Serializable id, LockMode lockMode);
 
     /**
      * Return the persistent instance of the given named entity that matches the given identifier,
@@ -37,5 +37,5 @@ public interface StreamStatelessSession extends BaseStreamSession, StatelessSess
      * @param lockMode   the lock mode
      * @return an optional persistence instance
      */
-    Optional<?> getOptional(String entityName, Serializable id, LockMode lockMode);
+    <T> Optional<T> getOptional(String entityName, Serializable id, LockMode lockMode);
 }
