@@ -21,7 +21,7 @@ In order to start and runing simply add the artifact to your Maven/Gradle build.
 ```
 <dependency>
     <groupId>com.github.jmnarloch</groupId>
-    <artifactId>hstreams</artifactId>
+    <artifactId>hstreams43</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```
