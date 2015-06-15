@@ -48,5 +48,5 @@ Optional<User> user = session.getOptional("User", 1l);
 
 ## Todo
 
-* LocalDate and LocalTime support - will natively supported through Hibernate 5
+* LocalDate and LocalTime support - will be natively supported through Hibernate 5
 * Optional<?> custom type handler/converter
