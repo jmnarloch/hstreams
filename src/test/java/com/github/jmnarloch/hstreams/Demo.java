@@ -50,7 +50,7 @@ public class Demo {
                 .stream()
                 .count();
 
-        Optional<?> user1 = session.createQuery("from User where id = :id")
+        Optional<?> user1 = session.createTypedQuery("from User where id = :id", User.class)
                 .setParameter("id", 1l)
                 .optionalResult();
 
@@ -59,7 +59,7 @@ public class Demo {
                 .stream()
                 .findFirst();
 
-        Optional<?> user3 = session.getOptional("User", 1l);
+        Optional<User> user3 = session.getOptional("User", 1l);
     }
 
     private SessionFactory sessionFactory() {

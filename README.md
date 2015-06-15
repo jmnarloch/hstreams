@@ -38,11 +38,12 @@ long count = session.createQuery("from User")
         .stream()
         .count();
 
-Optional<?> admin = session.createQuery("from User where id = :id")
+Optional<User> admin = session.createTypedQuery("from User where id = :id", User.class)
         .setParameter("id", 1l)
-        .optionalResult();
+        .stream()
+        .findFirst();
 
-Optional<?> user = session.getOptional("User", 1l);
+Optional<User> user = session.getOptional("User", 1l);
 ```
 
 ## Todo
