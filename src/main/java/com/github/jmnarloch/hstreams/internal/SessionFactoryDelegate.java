@@ -20,6 +20,7 @@ import org.hibernate.Cache;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.TypeHelper;
+import org.hibernate.boot.spi.SessionFactoryOptions;
 import org.hibernate.engine.spi.FilterDefinition;
 import org.hibernate.metadata.ClassMetadata;
 import org.hibernate.metadata.CollectionMetadata;
@@ -27,7 +28,6 @@ import org.hibernate.stat.Statistics;
 
 import javax.naming.NamingException;
 import javax.naming.Reference;
-import java.io.Serializable;
 import java.sql.Connection;
 import java.util.Map;
 import java.util.Set;
@@ -46,7 +46,7 @@ class SessionFactoryDelegate implements StreamSessionFactory {
     }
 
     @Override
-    public SessionFactory.SessionFactoryOptions getSessionFactoryOptions() {
+    public SessionFactoryOptions getSessionFactoryOptions() {
         return delegate.getSessionFactoryOptions();
     }
 
@@ -123,46 +123,6 @@ class SessionFactoryDelegate implements StreamSessionFactory {
     @Override
     public Cache getCache() {
         return delegate.getCache();
-    }
-
-    @Override
-    public void evict(Class persistentClass) throws HibernateException {
-        delegate.evict(persistentClass);
-    }
-
-    @Override
-    public void evict(Class persistentClass, Serializable id) throws HibernateException {
-        delegate.evict(persistentClass, id);
-    }
-
-    @Override
-    public void evictEntity(String entityName) throws HibernateException {
-        delegate.evictEntity(entityName);
-    }
-
-    @Override
-    public void evictEntity(String entityName, Serializable id) throws HibernateException {
-        delegate.evictEntity(entityName, id);
-    }
-
-    @Override
-    public void evictCollection(String roleName) throws HibernateException {
-        delegate.evictCollection(roleName);
-    }
-
-    @Override
-    public void evictCollection(String roleName, Serializable id) throws HibernateException {
-        delegate.evictCollection(roleName, id);
-    }
-
-    @Override
-    public void evictQueries(String cacheRegion) throws HibernateException {
-        delegate.evictQueries(cacheRegion);
-    }
-
-    @Override
-    public void evictQueries() throws HibernateException {
-        delegate.evictQueries();
     }
 
     @Override

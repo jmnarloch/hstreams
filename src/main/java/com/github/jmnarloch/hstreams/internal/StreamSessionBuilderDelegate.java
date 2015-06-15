@@ -21,6 +21,7 @@ import org.hibernate.ConnectionReleaseMode;
 import org.hibernate.Interceptor;
 import org.hibernate.SessionBuilder;
 import org.hibernate.SessionEventListener;
+import org.hibernate.resource.jdbc.spi.StatementInspector;
 
 import java.sql.Connection;
 
@@ -50,6 +51,11 @@ class StreamSessionBuilderDelegate implements StreamSessionBuilder {
     @Override
     public StreamSessionBuilder noInterceptor() {
         return wrap(delegate.noInterceptor());
+    }
+
+    @Override
+    public StreamSessionBuilder statementInspector(StatementInspector statementInspector) {
+        return wrap(delegate.statementInspector(statementInspector));
     }
 
     @Override

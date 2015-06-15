@@ -19,6 +19,7 @@ import com.github.jmnarloch.hstreams.StreamSessionBuilder;
 import org.hibernate.ConnectionReleaseMode;
 import org.hibernate.Interceptor;
 import org.hibernate.SessionEventListener;
+import org.hibernate.resource.jdbc.spi.StatementInspector;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -71,6 +72,16 @@ public class StreamSessionBuilderDelegateTest extends
     public void setUp() throws Exception {
 
         instance = new StreamSessionBuilderDelegate(streamSessionBuilder);
+    }
+
+    @Test
+    public void testStatementInspector() throws Exception {
+
+        // given
+        final StatementInspector statementInspector = mock(StatementInspector.class);
+
+        // then
+        verifyMethodCall(sb -> sb.statementInspector(statementInspector));
     }
 
     @Test

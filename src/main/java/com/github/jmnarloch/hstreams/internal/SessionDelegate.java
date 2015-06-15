@@ -184,8 +184,8 @@ class SessionDelegate implements StreamSession {
     }
 
     @Override
-    public Connection close() throws HibernateException {
-        return delegate.close();
+    public void close() throws HibernateException {
+        delegate.close();
     }
 
     @Override

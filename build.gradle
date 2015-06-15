@@ -15,8 +15,8 @@ apply plugin: 'pmd'
 sourceCompatibility = 1.8
 
 group = "com.github.jmnarloch"
-archivesBaseName="hstreams43"
-version = '1.0.0'
+archivesBaseName="hstreams5"
+version = '1.0.0-SNAPSHOT'
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.4'
