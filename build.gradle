@@ -19,6 +19,10 @@ group = "com.github.jmnarloch"
 archivesBaseName="hstreams43"
 version = '1.0.1-SNAPSHOT'
 
+ext {
+    isReleaseVersion = !version.endsWith("SNAPSHOT")
+}
+
 task wrapper(type: Wrapper) {
     gradleVersion = '2.4'
 }
