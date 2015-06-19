@@ -2,7 +2,7 @@
 
 A  JDK 8 wrapper on top of Hibernate Query API
 
-[![Build Status](https://travis-ci.org/jmnarloch/hstreams.svg?branch=master)](https://travis-ci.org/jmnarloch/hstreams)
+[![Build Status](https://travis-ci.org/jmnarloch/hstreams.svg?branch=hstreams-5)](https://travis-ci.org/jmnarloch/hstreams)
 
 ## Features
 
