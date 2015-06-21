@@ -63,3 +63,10 @@ uploadArchives {
         }
     }
 }
+
+def installer = install.repositories.mavenInstaller
+def deployer = uploadArchives.repositories.mavenDeployer
+
+[installer, deployer]*.pom*.whenConfigured {pom ->
+    pom.dependencies.find {dep -> dep.groupId == 'org.hibernate'}.optional = true
+}
