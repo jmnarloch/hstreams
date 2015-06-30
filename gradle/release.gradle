@@ -1,5 +1,6 @@
 apply plugin: 'maven'
 apply plugin: 'signing'
+apply plugin: 'net.researchgate.release'
 
 task javadocJar(type: Jar) {
     classifier = 'javadoc'
@@ -70,3 +71,15 @@ def deployer = uploadArchives.repositories.mavenDeployer
 [installer, deployer]*.pom*.whenConfigured {pom ->
     pom.dependencies.find {dep -> dep.groupId == 'org.hibernate'}.optional = true
 }
+
+release {
+    tagTemplate = 'hstreams43-v${version}'
+
+    git {
+        requireBranch = 'hstreams-43'
+        pushToRemote = 'origin'
+        pushToCurrentBranch = false
+    }
+}
+
+afterReleaseBuild.dependsOn uploadArchives
