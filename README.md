@@ -16,7 +16,7 @@ See the document that summarizes the introduced [API](api.adoc) changes
 
 ## Setup
 
-In order to start and runing simply add the artifact to your Maven/Gradle build.
+In order to start and running simply add the artifact to your Maven/Gradle build.
 
 ```
 <dependency>
