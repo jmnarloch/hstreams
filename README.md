@@ -11,7 +11,7 @@ A  JDK 8 wrapper on top of Hibernate Query API
 * LocalDate and LocalTime as query parameters
 * Typed queries
 
-Current compatibility: Hibernate 4.3.x / Hibernate 5.x
+Current compatibility: [Hibernate 4.3.x](/jmnarloch/hstreams/tree/hstreams-43) / [Hibernate 5.x](/jmnarloch/hstreams/tree/hstreams-5)
 
 See the document that summarizes the introduced [API](api.adoc) changes
 
