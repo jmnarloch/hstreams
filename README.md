@@ -10,7 +10,7 @@ A  JDK 8 wrapper on top of Hibernate Query API
 * Query to stream conversion
 * Typed queries
 
-Current compatibility: [Hibernate 4.3.x](/jmnarloch/hstreams/tree/hstreams-43) / [Hibernate 5.x](/jmnarloch/hstreams/tree/hstreams-5)
+Current compatibility: [Hibernate 4.3.x](https://github.com/jmnarloch/hstreams/tree/hstreams-43) / [Hibernate 5.x](https://github.com/jmnarloch/hstreams/tree/hstreams-5)
 
 See the document that summarizes the introduced [API](api.adoc) changes
 
